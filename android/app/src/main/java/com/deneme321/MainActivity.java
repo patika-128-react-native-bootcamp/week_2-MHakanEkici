@@ -1,4 +1,4 @@
-package com.deneme321;
+package com.Deneme321;
 
 import com.facebook.react.ReactActivity;
 
