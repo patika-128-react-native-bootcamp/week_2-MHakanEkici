@@ -6,7 +6,7 @@ This project is made for Patika.dev - Inavitas & Başarsoft React Native Bootcam
 A product list project. You can add products and sort them by prices or added dates.
 
 <p align="center">
-  <img src="src/image/gif3.gif" >
+  <img src="src/image/gif3.gif" width="360" height="740" >
   <br/>
   <br/>
   <br/>
@@ -15,7 +15,7 @@ A product list project. You can add products and sort them by prices or added da
   <br/>
   <br/>
   <br/>
-  <img src="src/image/gif1.gif" >
+  <img src="src/image/gif1.gif" width="360" height="740" >
   <br/>
   <br/>
   <br/>
@@ -24,7 +24,7 @@ A product list project. You can add products and sort them by prices or added da
   <br/>
   <br/>
   <br/>
-  <img src="src/image/gif2.gif" >
+  <img src="src/image/gif2.gif" width="360" height="740" >
 </p>
 
 
