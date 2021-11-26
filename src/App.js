@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {createRef, useEffect, useState } from 'react';
 import {SafeAreaView, View, StyleSheet, Text} from 'react-native';
 import ProductAddArea from './components/ProductAddArea/ProductAddArea';
 import ProductList from './components/ProductList/ProductList';
@@ -8,6 +8,14 @@ const App = () => {
   const [dataList, setDataList] = useState([]);
   const [selectedSortingType, setSelectedSortingType] = useState('3');
 
+  let productAddAreaRef = createRef()
+
+  //To render the product list again sort with the new added product.
+  useEffect(() => {
+    sortProductList(dataList, selectedSortingType);
+  }, [dataList]);
+
+  //Is the sort button selected check, returns boolean. This using for change selected buttons color.
   function isSelected(buttonId) {
     return selectedSortingType === buttonId;
   }
@@ -34,7 +42,7 @@ const App = () => {
   }
 
   function handleAddProduct(productName, price) {
-    const data = [
+    const productData = [
       ...dataList,
       {
         name: productName,
@@ -42,8 +50,9 @@ const App = () => {
         addingDate: Date.now(),
       },
     ];
-    setDataList(data);
-    sortProductList(data, selectedSortingType);
+    setDataList(productData);
+    productAddAreaRef.current.clearInputText();
+
   }
 
   return (
@@ -55,7 +64,7 @@ const App = () => {
             updateSelectedSortingType(buttonId)
           }></SortCard>
         <ProductList data={dataList} renderItem={dataList}></ProductList>
-        <ProductAddArea addProduct={handleAddProduct}></ProductAddArea>
+        <ProductAddArea addProduct={handleAddProduct} ref={productAddAreaRef}></ProductAddArea>
       </View>
     </SafeAreaView>
   );

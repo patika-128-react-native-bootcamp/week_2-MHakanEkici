@@ -16,4 +16,8 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     color: 'white',
   },
+  seperator: {
+    height: 2,
+    backgroundColor: '#dbdfe0',
+  },
 });

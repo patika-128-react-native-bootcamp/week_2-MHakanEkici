@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import styles from './SortButton.style';
 
-const SortButton = ({buttonTitle, onClick, isSelected}) => {
+const SortButton = memo(({buttonTitle, onClick, isSelected}) => {
   return (
     <View>
       <TouchableOpacity 
@@ -13,6 +13,6 @@ const SortButton = ({buttonTitle, onClick, isSelected}) => {
       </TouchableOpacity>
     </View>
   );
-};
+});
 
-export default SortButton;
+export default memo (SortButton);

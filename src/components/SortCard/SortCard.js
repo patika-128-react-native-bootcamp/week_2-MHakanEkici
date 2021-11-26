@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {View} from 'react-native';
 import SortButton from '../SortButton';
 import styles from './SortCard.style';
 
-const SortCard = ({updateSelectedButton, isButtonSelected}) => {
+const SortCard = memo(({updateSelectedButton, isButtonSelected}) => {
 
   return (
     <View style={styles.sortCard_container}>
@@ -12,6 +12,6 @@ const SortCard = ({updateSelectedButton, isButtonSelected}) => {
       <SortButton id='3' isSelected={isButtonSelected('3')} buttonTitle= "Tarih" onClick={() => updateSelectedButton('3')}></SortButton>
     </View>
   );
-};
+});
 
-export default SortCard;
+export default memo (SortCard);
