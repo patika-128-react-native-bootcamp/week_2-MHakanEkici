@@ -10,7 +10,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
   },
   productName: {
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: 'bold',
   },
   price: {

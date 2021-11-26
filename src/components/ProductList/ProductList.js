@@ -9,7 +9,7 @@ const ProductList = ({data}) => {
         data={data}
         renderItem={({item}) => (
           <View style={styles.itemBody}>
-            <Text style={styles.productName}>{item.name}</Text> 
+            <Text style={styles.productName}>{item.name}</Text>
             <Text style={styles.price}>{item.price} TL</Text>
           </View>
         )}

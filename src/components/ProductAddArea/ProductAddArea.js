@@ -1,27 +1,41 @@
-import React, {createRef, forwardRef, memo, useImperativeHandle, useRef, useState} from 'react';
-import {TouchableOpacity, View, Text} from 'react-native';
-import Input from '../Input';
+import React, {forwardRef, memo, useImperativeHandle, useState} from 'react';
+import {TouchableOpacity, View, Text, TextInput} from 'react-native';
 import styles from './ProductAddArea.style';
 
-const ProductAddArea = memo(forwardRef(({addProduct}, ref) => {
+const ProductAddArea = memo(
+  forwardRef(({addProduct}, ref) => {
     const [productName, setProductName] = useState('');
     const [price, setPrice] = useState('');
 
-    let inputProductNameRef = useRef(null)
-    let inputPriceRef = useRef(null)
-
+    //forwardRef ile ref propsu alınır, useImperativeHandle ile bu refin tetikleyeceği fonksiyon içerisinde oluşturulur.
     useImperativeHandle(ref, () => ({
       clearInputText: () => {
-        inputProductNameRef.current.clearText();
-        inputPriceRef.current.clearText();
+        setProductName('');
+        setPrice('');
       },
     }));
 
     return (
       <View style={styles.container}>
         <View style={styles.seperator}></View>
-        <Input title="Name" updateText={setProductName} ref={inputProductNameRef}></Input>
-        <Input title="Price" updateText={setPrice} ref={inputPriceRef}></Input>
+
+        <View style={styles.input_container}>
+          <Text style={styles.inputTitle}>Name</Text>
+          <TextInput
+            style={styles.input}
+            onChangeText={setProductName}
+            value={productName}
+          />
+        </View>
+
+        <View style={styles.input_container}>
+          <Text style={styles.inputTitle}>Price</Text>
+          <TextInput
+            style={styles.input}
+            onChangeText={setPrice}
+            value={price}
+          />
+        </View>
         <TouchableOpacity
           style={styles.button_container}
           onPress={() =>

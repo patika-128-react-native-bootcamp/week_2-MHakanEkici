@@ -1,5 +1,5 @@
 import React, {createRef, useEffect, useState } from 'react';
-import {SafeAreaView, View, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, View, StyleSheet} from 'react-native';
 import ProductAddArea from './components/ProductAddArea/ProductAddArea';
 import ProductList from './components/ProductList/ProductList';
 import SortCard from './components/SortCard';
@@ -7,8 +7,11 @@ import SortCard from './components/SortCard';
 const App = () => {
   const [dataList, setDataList] = useState([]);
   const [selectedSortingType, setSelectedSortingType] = useState('3');
-
-  let productAddAreaRef = createRef()
+ 
+  // ProductAddArea componentindeki bir fonksiyonu tetiklemek için referans oluşturur. 
+  // sayfanın return'ünde ProductAddArea componentine props olarak yazılır -->  ref={productAddAreaRef}.  
+  // Şu şekilde componentteki fonksiyon tetiklenir --> productAddAreaRef.current.clearInputText();
+  let productAddAreaRef = createRef() 
 
   //To render the product list again sort with the new added product.
   useEffect(() => {
@@ -60,11 +63,9 @@ const App = () => {
       <View>
         <SortCard
           isButtonSelected={isSelected}
-          updateSelectedButton={buttonId =>
-            updateSelectedSortingType(buttonId)
-          }></SortCard>
+          updateSelectedButton={buttonId => updateSelectedSortingType(buttonId)}></SortCard>
         <ProductList data={dataList} renderItem={dataList}></ProductList>
-        <ProductAddArea addProduct={handleAddProduct} ref={productAddAreaRef}></ProductAddArea>
+        <ProductAddArea addProduct={handleAddProduct} ref={productAddAreaRef}></ProductAddArea> 
       </View>
     </SafeAreaView>
   );
