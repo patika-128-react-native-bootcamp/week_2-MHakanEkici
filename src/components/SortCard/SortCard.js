@@ -7,20 +7,20 @@ const SortCard = memo(({updateSelectedButton, isButtonSelected}) => {
   return (
     <View style={styles.sortCard_container}>
       <SortButton
-        id="1"
-        isSelected={isButtonSelected('1')}
+        sortType="Increasing Price"
+        isSelected={isButtonSelected('Increasing Price')}
         buttonTitle="Artan Fiyat"
-        onClick={() => updateSelectedButton('1')}></SortButton>
+        onClick={() => updateSelectedButton('Increasing Price')}></SortButton>
       <SortButton
-        id="2"
-        isSelected={isButtonSelected('2')}
+        sortType="Decreasing Price"
+        isSelected={isButtonSelected('Decreasing Price')}
         buttonTitle="Azalan Fiyat"
-        onClick={() => updateSelectedButton('2')}></SortButton>
+        onClick={() => updateSelectedButton('Decreasing Price')}></SortButton>
       <SortButton
-        id="3"
-        isSelected={isButtonSelected('3')}
+        sortType="Added Date"
+        isSelected={isButtonSelected('Added Date')}
         buttonTitle="Tarih"
-        onClick={() => updateSelectedButton('3')}></SortButton>
+        onClick={() => updateSelectedButton('Added Date')}></SortButton>
     </View>
   );
 });

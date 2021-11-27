@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, FlatList} from 'react-native';
+import ListItemView from './ListItemView';
 import styles from './ProductList.style';
 
 const ProductList = ({data}) => {
@@ -7,12 +8,7 @@ const ProductList = ({data}) => {
     <View style={styles.listBody}>
       <FlatList
         data={data}
-        renderItem={({item}) => (
-          <View style={styles.itemBody}>
-            <Text style={styles.productName}>{item.name}</Text>
-            <Text style={styles.price}>{item.price} TL</Text>
-          </View>
-        )}
+        renderItem={({item}) => <ListItemView item={item}></ListItemView>}
         ItemSeparatorComponent={() => {
           return <View style={styles.seperator} />;
         }}
