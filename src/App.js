@@ -48,6 +48,7 @@ const App = () => {
     const productData = [
       ...dataList,
       {
+        id: Math.random(),
         name: productName,
         price: price,
         addingDate: Date.now(),
