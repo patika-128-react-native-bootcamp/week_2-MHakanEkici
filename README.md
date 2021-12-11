@@ -3,7 +3,7 @@
 ## Info
 This project is made for Patika.dev - Inavitas & Başarsoft React Native Bootcamp
 
-A product list project. You can add products and sort them by prices or added dates.
+A movie list project. You can view movie list, see movies details and reviews, you can add review to a movie.
 
 <p align="center">
   <img src="src/image/gif3.gif" width="360" height="740" >
